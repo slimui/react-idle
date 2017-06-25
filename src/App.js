@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
 
-function increment(state, props) {
-    return {
-        value: state.value + 1/60
+function increment(deltaTime) {
+    return function update(state) {
+        return {
+            value: state.value + deltaTime/1000
+        };
     };
 }
 
 class App extends Component {
 
-    state = { value: 0};
+    state = { 
+        value: 0,
+     };
+
+     frameRate = 60;
+     lastUpdateTime = Date.now();
+     currentTime;
+     deltaTime;
 
     componentWillMount() {
-        setInterval(this.timer, 1000/60);
+        this.gameLoop();
     }
 
-    timer = ()  => {
-        this.setState(increment);
+    gameLoop = () => {
+        this.currentTime = Date.now();
+        this.deltaTime = this.currentTime - this.lastUpdateTime;
+        this.lastUpdateTime = this.currentTime;
+        this.setState(increment(this.deltaTime));
+        setTimeout(this.gameLoop), 1000/this.frameRate;
     }
 
     render() {
