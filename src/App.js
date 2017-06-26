@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import SampleComponent from './SampleComponent';
+
 function increment(deltaTime) {
     return function update(state) {
         return {
@@ -37,6 +39,7 @@ class App extends Component {
         return (
             <div className="App">
                 {count}
+                <SampleComponent />
             </div>
         );
     }
