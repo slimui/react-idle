@@ -15,13 +15,13 @@ class App extends Component {
         value: 0,
      };
 
-     frameRate = 60;
-     lastUpdateTime = Date.now();
+     frameRate = 60; // How many frames the game should attempt to render at
+     lastUpdateTime = Date.now(); 
      currentTime;
      deltaTime;
 
     componentWillMount() {
-        this.gameLoop();
+        this.gameLoop(); // Start the game loop
     }
 
     gameLoop = () => {
@@ -29,7 +29,7 @@ class App extends Component {
         this.deltaTime = this.currentTime - this.lastUpdateTime;
         this.lastUpdateTime = this.currentTime;
         this.setState(increment(this.deltaTime));
-        setTimeout(this.gameLoop), 1000/this.frameRate;
+        setTimeout(this.gameLoop, 1000/this.frameRate);
     }
 
     render() {
