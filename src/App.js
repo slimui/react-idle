@@ -3,7 +3,7 @@ import './App.css';
 
 import SampleComponent from './SampleComponent';
 
-function increment(deltaTime) {
+export function increment(deltaTime) {
     return function update(state) {
         return {
             value: state.value + deltaTime/1000
