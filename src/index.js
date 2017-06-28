@@ -7,7 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import configureStore from './store/configureStore';
+import rootSaga from './sagas/sagas';
+
 const store = configureStore();
+store.runSaga(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>

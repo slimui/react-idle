@@ -2,11 +2,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from '../reducers/rootReducer';
 
 export default function configureStore(preloadedState) {
-    const middlewares = [thunk];
+    const sagaMiddleware = createSagaMiddleware();
+    const middlewares = [thunk, sagaMiddleware];
     const middlewareEnhancer = applyMiddleware(...middlewares);
 
     const storeEnhancers = [middlewareEnhancer];
@@ -18,6 +20,8 @@ export default function configureStore(preloadedState) {
         preloadedState,
         composedEnhancer
     );
+
+    store.runSaga = sagaMiddleware.run;
 
     return store;
 }
