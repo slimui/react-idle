@@ -5,7 +5,7 @@ import counterReducer from './counterReducer';
 
 const rootReducer = combineReducers({
     test: testReducer,
-    count: counterReducer
+    counter: counterReducer
 });
 
 export default rootReducer;

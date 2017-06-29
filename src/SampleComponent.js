@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-    data: state.count.counter
+    data: state.counter.count
 });
 
 class SampleComponent extends Component {
     render() {
         const {data} = this.props;
-        let count = data.toFixed(1);
+        let count = data.toFixed(5);
 
         return (
             <div>
