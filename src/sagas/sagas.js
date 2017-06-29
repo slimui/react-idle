@@ -8,14 +8,14 @@ export default function* gameLoop() {
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
-    let valuePerSecond;
+    let valuePerSecond = 1;
 
     function* test() {
         currentTime = Date.now();
         deltaTime = currentTime - lastUpdateTime;
         lastUpdateTime = currentTime;
         console.log(deltaTime);
-        yield put(updateCounter(deltaTime/1000));
+        yield put(updateCounter(valuePerSecond * deltaTime/1000));
         yield delay(1000/frameRate);
         yield call(test);
     }
