@@ -9,7 +9,9 @@
     "redux": "^3.7.1",
     "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.15.4",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.70.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
