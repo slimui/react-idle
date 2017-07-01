@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import 'semantic-ui-css/semantic.css';
 
 import configureStore from './store/configureStore';
 import rootSaga from './sagas/sagas';
