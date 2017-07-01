@@ -5,7 +5,7 @@ import {
 
 import './App.css';
 
-import SampleComponent from './SampleComponent';
+import Counter from './Counter';
 
 export function increment(deltaTime) {
     return function update(state) {
@@ -22,7 +22,7 @@ class App extends Component {
                 <div className="App-header">
                     <Header inverted as="h1">React Idle</Header>
                 </div>
-                <SampleComponent />
+                <Counter />
             </div>
         );
     }
