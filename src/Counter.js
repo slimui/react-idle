@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-    count: state.counter.count
+    count: state.counter.count,
+    valuePerSecond: state.counter.valuePerSecond
 });
 
 class Counter extends Component {
     render() {
-        const {count} = this.props;
+        const {count, valuePerSecond} = this.props;
         let formattedCount = count.toFixed(5);
 
         return (
             <div>
-                Data from Redux: {formattedCount}
+                Counter: {formattedCount}
+                <br/> 
+                Increase Per Second: {valuePerSecond}
             </div>
         );
     }

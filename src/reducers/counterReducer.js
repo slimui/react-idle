@@ -1,5 +1,6 @@
 const initialState = {
-    count: 0
+    count: 0,
+    valuePerSecond: 1
 };
 
 export default function counterReducer(state = initialState, action) {
