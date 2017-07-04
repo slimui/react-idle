@@ -39,6 +39,9 @@ class App extends Component {
                         </Row>
                     </div>
                 </Content>
+                <Footer>
+                    A game by Sonicrida
+                </Footer>
             </Layout>
         );
     }

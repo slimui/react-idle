@@ -31,5 +31,3 @@ export function calculateProgress() {
 
     balls = calculate(2000);
 }
-
-        
