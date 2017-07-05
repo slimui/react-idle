@@ -14,7 +14,6 @@ const FooterContainer = Styled.div`
 
 const GameContainer = Styled.div`
     padding: 50px;
-    text-align: center;
     background: #fff;
     margin-top: 20px;
     margin-left: 20px;

@@ -8,7 +8,7 @@ export default function* gameLoop() {
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
-    let valuePerSecond = 1;
+    let valuePerSecond = .1;
 
     function* update() {
         while (true) {
