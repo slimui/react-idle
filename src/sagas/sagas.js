@@ -1,6 +1,7 @@
 import { delay } from 'redux-saga';
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import { updateCounter } from '../actions';
+import { getValuePerSecond } from '../helpers/selectors';
 
 export default function* gameLoop() {
 
@@ -8,10 +9,12 @@ export default function* gameLoop() {
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
-    let valuePerSecond = .1;
+    let valuePerSecond = yield select(getValuePerSecond);
+    console.log(valuePerSecond);
 
     function* update() {
         while (true) {
+            valuePerSecond = yield select(getValuePerSecond);
             currentTime = Date.now();
             deltaTime = currentTime - lastUpdateTime;
             lastUpdateTime = currentTime;

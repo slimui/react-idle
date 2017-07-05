@@ -1,0 +1,1 @@
+export const getValuePerSecond = state => state.counter.valuePerSecond;

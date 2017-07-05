@@ -1,6 +1,6 @@
 const initialState = {
     count: 0,
-    valuePerSecond: 1,
+    valuePerSecond: .1,
     islandProgress: 1
 };
 
