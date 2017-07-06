@@ -11,13 +11,12 @@ export default function counterReducer(state = initialState, action) {
                 ...state,
                 count: state.count + action.count
             })
-        case 'FINISH_ISLAND': {
+        case 'FINISH_ISLAND': 
             return Object.assign({}, state, {
                 ...state,
-                islandProgress: state.islandProgress + 1
+                islandProgress: state.islandProgress + 1,
+                count: 0
             })
-        }
-            
         default:
             return state;
     }

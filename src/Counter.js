@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 class Counter extends Component {
     render() {
         const {count, valuePerSecond, island} = this.props;
-        let formattedCount = count.toFixed(5);
+        let formattedCount = count.toFixed(2);
         let islandLives = islands.islands[island - 1].lives;
         let remainingLives = islandLives - formattedCount;
         let formattedLives = remainingLives.toFixed();
@@ -24,7 +24,7 @@ class Counter extends Component {
                 <h1>Counter: {formattedCount}</h1>
                 <h2>Increase Per Second: {valuePerSecond}</h2>
                 <h3>Island Number: {island}</h3>
-                <h4>Lives: {formattedLives} <Progress percent={progress * 100}/></h4>
+                <h4>Lives: {formattedLives} <Progress percent={progress * 100} format={percent => `${Math.trunc(percent)}%`}/></h4>
             </div>
         );
     }
