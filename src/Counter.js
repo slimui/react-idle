@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Progress } from 'antd';
 
 import islands from './data/islands.js';
 
@@ -16,13 +17,14 @@ class Counter extends Component {
         let islandLives = islands.islands[island - 1].lives;
         let remainingLives = islandLives - formattedCount;
         let formattedLives = remainingLives.toFixed();
+        let progress = count / islandLives;
 
         return (
             <div>
                 <h1>Counter: {formattedCount}</h1>
                 <h2>Increase Per Second: {valuePerSecond}</h2>
                 <h3>Island Number: {island}</h3>
-                <h4>Lives: {formattedLives}</h4>
+                <h4>Lives: {formattedLives} <Progress percent={progress * 100}/></h4>
             </div>
         );
     }
