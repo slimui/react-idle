@@ -5,7 +5,7 @@ import './App.css';
 
 import Counter from './Counter';
 
-const SubMenu = Menu.SubMenu;
+//const SubMenu = Menu.SubMenu;
 const { Header, Content, Footer } = Layout;
 
 const FooterContainer = Styled.div`

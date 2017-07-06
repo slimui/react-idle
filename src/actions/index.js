@@ -4,3 +4,10 @@ export const updateCounter = (count) => {
         count
     }
 }
+
+export const finishIsland = (island) => {
+    return {
+        type: 'FINISH_ISLAND',
+        island
+    }
+}

@@ -1,4 +1,4 @@
-export default islandsData = {
+const islandsData = {
     islands: [
         {
             name: "Training",
@@ -10,5 +10,32 @@ export default islandsData = {
             lives: 100,
             towns: 5
         },
+        {
+            name: "Island 3",
+            lives: 1000,
+            towns: 5
+        },
+        {
+            name: "Island 4",
+            lives: 10000,
+            towns: 5
+        },
+        {
+            name: "Island 5",
+            lives: 100000,
+            towns: 5
+        },
+        {
+            name: "Island 6",
+            lives: 1000000,
+            towns: 5
+        },
+        {
+            name: "Island 7",
+            lives: 10000000,
+            towns: 5
+        },
     ]
-}
+};
+
+export default islandsData;
