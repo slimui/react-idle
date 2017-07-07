@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Progress } from 'antd';
+import { Progress, Card } from 'antd';
 
 import islands from './data/islands.js';
 
@@ -20,12 +20,12 @@ class Counter extends Component {
         let progress = count / islandLives;
 
         return (
-            <div>
+            <Card>
                 <h1>Counter: {formattedCount}</h1>
                 <h2>Increase Per Second: {valuePerSecond}</h2>
                 <h3>Island Number: {island}</h3>
-                <h4>Lives: {formattedLives} <Progress percent={progress * 100} format={percent => `${Math.trunc(percent)}%`}/></h4>
-            </div>
+                <h4>Lives: {formattedLives} <Progress percent={progress * 100} status="active" format={percent => `${Math.trunc(percent)}%`} strokeWidth={20}/></h4>
+            </Card>
         );
     }
 }

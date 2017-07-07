@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Col, Row } from 'antd';
+import { Layout, Col, Row } from 'antd';
 import Styled from 'styled-components';
 import './App.css';
 
-import Counter from './Counter';
+import Nav from './Nav.js';
+import Game from './Game.js';
+import FooterContent from './FooterContent';
 
-//const SubMenu = Menu.SubMenu;
 const { Header, Content, Footer } = Layout;
 
-const FooterContainer = Styled.div`
-    text-align: center;
-`;
-
-const GameContainer = Styled.div`
-    padding: 50px;
-    background: #fff;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-`;
 
 export function increment(deltaTime) {
     return function update(state) {
@@ -33,30 +23,13 @@ class App extends Component {
         return (
             <Layout>
                 <Header>
-                    <Menu
-                        mode="horizontal"
-                        theme="dark"
-                        defaultSelectedKeys={['1']}
-                        style={{ lineHeight: '64px' }}
-                    >
-                        <Menu.Item key="1">Home</Menu.Item>
-                        <Menu.Item key="2">About</Menu.Item>
-                        <Menu.Item key="3">Options</Menu.Item>
-                    </Menu>
+                    <Nav />
                 </Header>
                 <Content>
-                    <GameContainer>
-                        <Row>
-                            <Col span={12} offset={6}>
-                                <Counter />
-                            </Col>
-                        </Row>
-                    </GameContainer>
+                    <Game />
                 </Content>
                 <Footer>
-                    <FooterContainer>
-                        A game by Sonicrida
-                    </FooterContainer>
+                    <FooterContent />
                 </Footer>
             </Layout>
         );
