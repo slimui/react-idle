@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import Styled from 'styled-components';
 
 import Counter from './Counter';

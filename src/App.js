@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Col, Row } from 'antd';
-import Styled from 'styled-components';
+import { Layout } from 'antd';
 import './App.css';
 
 import Nav from './Nav.js';
