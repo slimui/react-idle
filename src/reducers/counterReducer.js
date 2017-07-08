@@ -1,7 +1,8 @@
 const initialState = {
     count: 0,
-    valuePerSecond: .1,
-    lootSpeed: 1,
+    valuePerSecond: 0,
+    loot: 0,
+    lootSpeed: .1,
     islandProgress:1
 };
 
@@ -11,6 +12,11 @@ export default function counterReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 ...state,
                 count: state.count + action.count
+            })
+        case 'UPDATE_LOOT':
+            return Object.assign({}, state, {
+                ...state,
+                loot: state.loot + action.loot
             })
         case 'FINISH_ISLAND': 
             return Object.assign({}, state, {

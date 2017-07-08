@@ -5,9 +5,15 @@ export const updateCounter = (count) => {
     }
 }
 
-export const finishIsland = (island) => {
+export const finishIsland = () => {
     return {
-        type: 'FINISH_ISLAND',
-        island
+        type: 'FINISH_ISLAND'
+    }
+}
+
+export const updateLoot = (loot) => {
+    return {
+        type: 'UPDATE_LOOT',
+        loot
     }
 }
