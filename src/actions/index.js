@@ -17,3 +17,10 @@ export const updateLoot = (loot) => {
         loot
     }
 }
+
+export const updateDamage = (damage) => {
+    return {
+        type: 'UPDATE_DAMAGE',
+        damage
+    }
+}

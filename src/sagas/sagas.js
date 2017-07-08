@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
-import { updateCounter, finishIsland, updateLoot } from '../actions';
-import { getValuePerSecond, getIslandProgress, getCount, getLootSpeed } from '../helpers/selectors';
+import { updateCounter, finishIsland, updateLoot, updateDamage } from '../actions';
+import { getValuePerSecond, getIslandProgress, getCount, getLootSpeed, getLoot } from '../helpers/selectors';
 
 import islandData from '../data/islands';
 
@@ -13,11 +13,14 @@ export default function* gameLoop() {
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
+
     let valuePerSecond = yield select(getValuePerSecond);
     let lootSpeed = yield select(getLootSpeed);
+    let loot = yield select(getLoot);
     let count = yield select(getCount);
     let islandNumber = yield select(getIslandProgress);
     let islandLives = islandData.islands[islandNumber - 1].lives;
+    let damageUpdated = false;
 
     // Game Loop runs at 60 fps (may be an option set by the user later)
 
@@ -29,6 +32,7 @@ export default function* gameLoop() {
             islandLives = islandData.islands[islandNumber - 1].lives;
 
             valuePerSecond = yield select(getValuePerSecond);
+            loot = yield select(getLoot);
             lootSpeed = yield select(getLootSpeed);
 
             currentTime = Date.now();
@@ -45,6 +49,11 @@ export default function* gameLoop() {
                 yield put(finishIsland(islandNumber));
                 islandNumber = yield select(getIslandProgress);
                 console.log(islandNumber);
+            }
+
+            if( loot > 10 && damageUpdated === false) {
+                yield put(updateDamage(1));
+                damageUpdated = true;
             }
 
             yield delay(1000/frameRate);
