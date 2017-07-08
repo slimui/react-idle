@@ -3,7 +3,7 @@ const islandsData = {
         {
             name: "Training",
             lives: 10,
-            towns: 2
+            towns: 2,
         },
         {
             name: "Dacaria",

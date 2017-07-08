@@ -9,7 +9,7 @@ export default function* gameLoop() {
 
     // Set up initial variables for the game loop
 
-    const frameRate = 60;
+    const frameRate = 30;
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
@@ -22,16 +22,15 @@ export default function* gameLoop() {
 
     function* update() {
         while (true) {
+
+            // Update kill counter every frame based on calculated kills per second
+
+
             count = yield select(getCount);
             
             islandLives = islands.islands[islandNumber - 1].lives;
 
-            // Check if the current island is complete
-            if( islandLives && count >= islandLives) {
-                yield put(finishIsland(islandNumber));
-                islandNumber = yield select(getIslandProgress);
-                console.log(islandNumber);
-            }
+            
 
             valuePerSecond = yield select(getValuePerSecond);
             currentTime = Date.now();
@@ -39,6 +38,13 @@ export default function* gameLoop() {
             lastUpdateTime = currentTime;
 
             yield put(updateCounter(valuePerSecond * deltaTime/1000));
+
+            // Check if the current island is complete
+            if( islandLives && count >= islandLives) {
+                yield put(finishIsland(islandNumber));
+                islandNumber = yield select(getIslandProgress);
+                console.log(islandNumber);
+            }
 
             yield delay(1000/frameRate);
         }
