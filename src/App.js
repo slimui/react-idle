@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
-import { Container, Segment, Header, Menu, Button, Icon } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -22,19 +21,8 @@ import FooterContent from './FooterContent';
 class App extends Component {
     render() {
         return (
-            // <Layout>
-            //     <Header>
-            //         <Nav />
-            //     </Header>
-            //     <Content>
-            //         <Game />
-            //     </Content>
-            //     <Footer>
-            //         <FooterContent />
-            //     </Footer>
-            // </Layout>
             <div>
-                <Segment basic vertical inverted color="grey" style={{ height: '100vh', paddingTop: '0'}}>
+                <Segment basic vertical inverted color="grey" style={{ height: '100vh', paddingTop: '0' }}>
                     <Nav />
 
                     <Game />

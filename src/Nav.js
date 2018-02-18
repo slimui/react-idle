@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Segment, Header, Menu, Button, Icon } from 'semantic-ui-react';
+import { Container, Segment, Menu, Button } from 'semantic-ui-react';
 
 export default function Nav() {
     return (

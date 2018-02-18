@@ -18,7 +18,7 @@ const mapStateToProps = state => ({
 
 class Counter extends Component {
     render() {
-        const { count, valuePerSecond, island, loot } = this.props;
+        const { count, valuePerSecond, island } = this.props;
         let formattedCount = Math.trunc(count);
         let islandLives = islands.islands[island - 1].lives;
         let remainingLives = islandLives - formattedCount;
