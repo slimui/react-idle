@@ -9,7 +9,7 @@ export default function* gameLoop() {
 
     // Set up initial variables for the game loop
 
-    const frameRate = 30;
+    const frameRate = 60;
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;

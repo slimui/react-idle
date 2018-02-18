@@ -2,7 +2,7 @@ const initialState = {
     count: 0,
     valuePerSecond: 0,
     loot: 0,
-    lootSpeed: 2,
+    lootSpeed: 1,
     islandProgress:1
 };
 

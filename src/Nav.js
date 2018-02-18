@@ -1,17 +1,29 @@
 import React from 'react';
-import { Menu } from 'antd';
+import { Container, Segment, Header, Menu, Button, Icon } from 'semantic-ui-react';
 
 export default function Nav() {
-    return(
-        <Menu
-            mode="horizontal"
-            theme="dark"
-            defaultSelectedKeys={['1']}
-            style={{ lineHeight: '64px' }}
-        >
-            <Menu.Item key="1">Home</Menu.Item>
-            <Menu.Item key="2">About</Menu.Item>
-            <Menu.Item key="3">Options</Menu.Item>
-        </Menu>
+    return (
+        <Segment inverted textAlign="center" style={{ }} vertical>
+            <Menu inverted pointing secondary size="large">
+                <Container>
+                    <Menu.Item as="a" active>
+                        Home
+                    </Menu.Item>
+                    <Menu.Item as="a">About</Menu.Item>
+                    <Menu.Item as="a">Contact</Menu.Item>
+                    <Menu.Item as="a">Donate</Menu.Item>
+                    <Menu.Item as="a">Help</Menu.Item>
+                    <Menu.Item as="a">Settings</Menu.Item>
+                    {/* <Menu.Item position="right">
+                        <Button as="a" inverted>
+                            Log in
+                        </Button>
+                        <Button as="a" inverted primary style={{ marginLeft: '0.5em' }}>
+                            Sign Up
+                        </Button>
+                    </Menu.Item> */}
+                </Container>
+            </Menu>
+        </Segment>
     );
-};
+}
