@@ -35,6 +35,7 @@ class Counter extends Component {
                         <h4>
                             Lives: {formattedLives}{' '}
                             {/* <Progress percent={progress * 100} status="active" format={percent => `${Math.trunc(percent)}%`} strokeWidth={20} /> */}
+                            <Progress percent={progress * 100} inverted color="blue" />
                         </h4>
                     </StyledCard>
                 </Segment>

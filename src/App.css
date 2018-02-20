@@ -4,10 +4,24 @@
     /* display: block;
     line-height: 1;
     position: relative;
-    width: 0%;
-    min-width: 2em;
-    background: #888888;
+    width: 0%; */
+    min-width: 0 !important;
+    /* background: #888888;
     border-radius: 0.28571429rem; */
     -webkit-transition: width 0s ease, background-color 0.1s ease !important;
     transition: width 0s ease, background-color 0.1s ease !important;
+}
+
+.ui.cards a.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover,
+.ui.link.card:hover {
+    cursor: pointer;
+    z-index: 5;
+    background: #ffffff;
+    border: none;
+    /* -webkit-box-shadow: none !important;
+    box-shadow: none !important; */
+    -webkit-transform: none !important;
+    transform: none !important;
 }

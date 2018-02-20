@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Segment, Feed } from 'semantic-ui-react';
 import Styled from 'styled-components';
 
-const chapterOne = ['Hmm......', 'I have to get out of sight'];
+const chapterOne = ['Hmm......', 'Squad up homies'];
 
 const CardContainer = Styled(Card)`
     margin-top: 2rem;
@@ -14,7 +14,7 @@ const StyledFeed = Styled(Feed)`
 `;
 
 class StoryLog extends Component {
-    state = { lineNumber: 0 };
+    state = { lineNumber: -1 };
 
     renderNext = () => {
         if (this.state.lineNumber !== chapterOne.length) {
@@ -23,19 +23,23 @@ class StoryLog extends Component {
     };
 
     render() {
-        console.log(this.state);
+        let feedItems = chapterOne.map((textLine, index) => {
+            if (index <= this.state.lineNumber)
+                return (
+                    <Feed.Event key={index}>
+                        <Feed.Content>- {textLine}</Feed.Content>
+                    </Feed.Event>
+                );
+        });
+
+        
+
         return (
             <CardContainer fluid onClick={this.renderNext}>
                 <Segment inverted>
                     <h1>The Story So Far....</h1>
 
-                    <StyledFeed size="large">
-                        {chapterOne.map((textLine, index) => (
-                            <Feed.Event key={index}>
-                                <Feed.Content>- {textLine}</Feed.Content>
-                            </Feed.Event>
-                        ))}
-                    </StyledFeed>
+                    <StyledFeed size="large">{feedItems}</StyledFeed>
                 </Segment>
             </CardContainer>
         );
