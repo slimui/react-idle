@@ -3,7 +3,11 @@ const initialState = {
     valuePerSecond: 0,
     loot: 0,
     lootSpeed: 1,
-    islandProgress:1
+    islandProgress:1,
+    travelSpeed: 1,
+    defense: 1,
+    food: 0,
+    materials: 0
 };
 
 export default function counterReducer(state = initialState, action) {
