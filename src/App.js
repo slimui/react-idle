@@ -22,7 +22,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Segment basic vertical inverted color="grey" style={{ height: '100vh', paddingTop: '0' }}>
+                <Segment basic vertical inverted color="grey" style={{ height: '100%', paddingTop: '0' }}>
                     <Nav />
 
                     <Game />

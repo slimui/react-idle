@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 import Counter from './Counter';
 import Loot from './Components/Loot';
 import StoryLog from './Components/StoryLog';
+import CurrentIsland from './Components/CurrentIsland';
 
 const GameContainer = Styled.div`
     padding: 50px;
@@ -15,6 +16,7 @@ const GameContainer = Styled.div`
 export default function Game() {
     return (
         <GameContainer>
+            <CurrentIsland />
             <Counter />
             <Loot />
             <StoryLog />
