@@ -8,7 +8,8 @@ const islandsData = {
                 medium: 0,
                 large: 0
             },
-            size: 0
+            size: 40,
+            loot: 100
         },
         {
             name: 'Dacaria',
