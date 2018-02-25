@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 
 import Counter from './Counter';
 import Loot from './Components/Loot';
+import InteractionMenu from './Components/InteractionMenu';
 import StoryLog from './Components/StoryLog';
 import CurrentIsland from './Components/CurrentIsland';
 
@@ -19,6 +20,7 @@ export default function Game() {
             <CurrentIsland />
             <Counter />
             <Loot />
+            <InteractionMenu />
             <StoryLog />
         </GameContainer>
     );

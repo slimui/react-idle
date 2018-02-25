@@ -9,3 +9,5 @@ export const getLootSpeed = state => state.counter.lootSpeed;
 export const getLoot = state => state.counter.loot;
 
 export const getGameData = state => state.counter;
+
+export const getIslandSearchingStatus = state => state.islandSearching;

@@ -1,12 +1,11 @@
 import { delay } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 import { updateCounter, finishIsland, updateLoot, updateDamage } from '../actions';
-import { getValuePerSecond, getIslandProgress, getCount, getLootSpeed, getLoot } from '../helpers/selectors';
+import { getValuePerSecond, getIslandProgress, getCount, getLootSpeed, getLoot, getIslandSearchingStatus } from '../helpers/selectors';
 
 import islandData from '../data/islands';
 
 export default function* gameLoop() {
-
     // Set up initial variables for the game loop
 
     const frameRate = 60;
@@ -26,9 +25,8 @@ export default function* gameLoop() {
 
     function* update() {
         while (true) {
-
             // Update kill counter every frame based on calculated kills per second
-            
+
             islandLives = islandData.islands[islandNumber - 1].lives;
 
             valuePerSecond = yield select(getValuePerSecond);
@@ -39,27 +37,26 @@ export default function* gameLoop() {
             deltaTime = currentTime - lastUpdateTime;
             lastUpdateTime = currentTime;
 
-            yield put(updateCounter(valuePerSecond * deltaTime/1000));
-            yield put(updateLoot(lootSpeed * deltaTime/1000));
+            yield put(updateCounter(valuePerSecond * deltaTime / 1000));
+            yield put(updateLoot(lootSpeed * deltaTime / 1000));
 
             // Check if the current island is complete
 
             count = yield select(getCount);
-            if( islandLives && count >= islandLives) {
+            if (islandLives && count >= islandLives) {
                 yield put(finishIsland(islandNumber));
                 islandNumber = yield select(getIslandProgress);
                 console.log(islandNumber);
             }
 
-            if( loot > 10 && damageUpdated === false) {
+            if (loot > 10 && damageUpdated === false) {
                 yield put(updateDamage(1));
                 damageUpdated = true;
             }
 
-            yield delay(1000/frameRate);
+            yield delay(1000 / frameRate);
         }
     }
 
     yield call(update);
-
 }
