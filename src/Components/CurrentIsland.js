@@ -7,7 +7,7 @@ import islandOne from '../images/island1.jpg';
 const CardContainer = Styled(Card)`
     margin-top: 2rem;
     text-align: center;
-    width: 50% !important;
+    width: 100% !important;
     margin: 0 auto !important;
 `;
 

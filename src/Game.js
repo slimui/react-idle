@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import { Grid } from 'semantic-ui-react';
 
 import Counter from './Counter';
 import Loot from './Components/Loot';
@@ -17,11 +18,29 @@ const GameContainer = Styled.div`
 export default function Game() {
     return (
         <GameContainer>
-            <CurrentIsland />
-            <Counter />
-            <Loot />
-            <InteractionMenu />
-            <StoryLog />
+            <Grid columns="equal">
+                <Grid.Row>
+                    <Grid.Column>
+                        <CurrentIsland />
+                    </Grid.Column>
+                    <Grid.Column width={12}>
+                        <Counter />
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Loot />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <InteractionMenu />
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <StoryLog />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </GameContainer>
     );
 }

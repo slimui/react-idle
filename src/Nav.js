@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Segment, Menu, Button } from 'semantic-ui-react';
+import { Container, Segment, Menu } from 'semantic-ui-react';
 
 export default function Nav() {
     return (
-        <Segment inverted textAlign="center" style={{ }} vertical>
+        <Segment inverted textAlign="center" style={{}} vertical>
             <Menu inverted pointing secondary size="large">
                 <Container>
                     <Menu.Item as="a" active>
-                        Home
+                        Game
                     </Menu.Item>
                     <Menu.Item as="a">About</Menu.Item>
                     <Menu.Item as="a">Contact</Menu.Item>
