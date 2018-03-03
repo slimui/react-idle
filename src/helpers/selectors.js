@@ -10,4 +10,4 @@ export const getLoot = state => state.counter.loot;
 
 export const getGameData = state => state.counter;
 
-export const getIslandSearchingStatus = state => state.islandSearching;
+export const getIslandSearchingStatus = state => state.counter.searchingIsland;

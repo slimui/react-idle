@@ -12,7 +12,6 @@ export default function* gameLoop() {
     let lastUpdateTime = Date.now();
     let currentTime;
     let deltaTime;
-
     let valuePerSecond = yield select(getValuePerSecond);
     let lootSpeed = yield select(getLootSpeed);
     let loot = yield select(getLoot);
@@ -26,6 +25,7 @@ export default function* gameLoop() {
     function* update() {
         while (true) {
             // Update kill counter every frame based on calculated kills per second
+            console.log(yield select(getIslandSearchingStatus));
 
             islandLives = islandData.islands[islandNumber - 1].lives;
 

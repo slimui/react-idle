@@ -15,7 +15,7 @@ class InteractionMenu extends Component {
         return (
             <CardContainer>
                 <Segment inverted>
-                    <Button onClick={this.props.startIsland} disabled={this.props.searching}>Search</Button>
+                    <Button onClick={this.props.startIsland} disabled={this.props.searching}>{this.props.searching ? 'Searching' : 'Search'}</Button>
                 </Segment>
             </CardContainer>
         );
