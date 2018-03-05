@@ -19,39 +19,45 @@ export default function* gameLoop() {
     let islandNumber = yield select(getIslandProgress);
     let islandLives = islandData.islands[islandNumber - 1].lives;
     let damageUpdated = false;
+    let islandSearchingStatus = yield select(getIslandSearchingStatus);
 
     // Game Loop runs at 60 fps (may be an option set by the user later)
 
     function* update() {
         while (true) {
             // Update kill counter every frame based on calculated kills per second
-            console.log(yield select(getIslandSearchingStatus));
 
-            islandLives = islandData.islands[islandNumber - 1].lives;
+            islandSearchingStatus = yield select(getIslandSearchingStatus); // Check to see if the player is currently searching the island
 
-            valuePerSecond = yield select(getValuePerSecond);
-            loot = yield select(getLoot);
-            lootSpeed = yield select(getLootSpeed);
+            if (islandSearchingStatus === true) {
+                islandLives = islandData.islands[islandNumber - 1].lives;
 
-            currentTime = Date.now();
-            deltaTime = currentTime - lastUpdateTime;
-            lastUpdateTime = currentTime;
+                valuePerSecond = yield select(getValuePerSecond);
+                loot = yield select(getLoot);
+                lootSpeed = yield select(getLootSpeed);
 
-            yield put(updateCounter(valuePerSecond * deltaTime / 1000));
-            yield put(updateLoot(lootSpeed * deltaTime / 1000));
+                currentTime = Date.now();
+                deltaTime = currentTime - lastUpdateTime;
+                lastUpdateTime = currentTime;
 
-            // Check if the current island is complete
+                yield put(updateCounter(valuePerSecond * deltaTime / 1000));
+                yield put(updateLoot(lootSpeed * deltaTime / 1000));
 
-            count = yield select(getCount);
-            if (islandLives && count >= islandLives) {
-                yield put(finishIsland(islandNumber));
-                islandNumber = yield select(getIslandProgress);
-                console.log(islandNumber);
-            }
+                // Check if the current island is complete
 
-            if (loot > 10 && damageUpdated === false) {
-                yield put(updateDamage(1));
-                damageUpdated = true;
+                count = yield select(getCount);
+                if (islandLives && count >= islandLives) {
+                    yield put(finishIsland(islandNumber));
+                    islandNumber = yield select(getIslandProgress);
+                    console.log(islandNumber);
+                }
+
+                if (loot > 10 && damageUpdated === false) {
+                    yield put(updateDamage(1));
+                    damageUpdated = true;
+                }
+            } else {
+                lastUpdateTime = Date.now();
             }
 
             yield delay(1000 / frameRate);
