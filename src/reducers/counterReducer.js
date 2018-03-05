@@ -2,7 +2,7 @@ const initialState = {
     count: 0,
     valuePerSecond: 0,
     loot: 0,
-    lootSpeed: 0.1,
+    lootSpeed: 1,
     islandProgress: 1,
     travelSpeed: 1,
     defense: 1,
@@ -34,7 +34,8 @@ export default function counterReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 ...state,
                 islandProgress: state.islandProgress + 1,
-                count: 0
+                count: 0,
+                searchingIsland: false
             });
         default:
             return state;
